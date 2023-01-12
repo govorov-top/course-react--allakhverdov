@@ -1,5 +1,6 @@
 import CostItem from "./components/Costs/CostItem";
 import Card from "./components/UI/Card";
+import NewCost from "./components/NewCost/NewCost";
 function App() {
     const costs =[
         {
@@ -22,6 +23,7 @@ function App() {
     return (
         <div>
             <h1>Hi!</h1>
+            <NewCost/>
             <Card className="costs">
                 {
                     costs.map( (c, k) => <CostItem
