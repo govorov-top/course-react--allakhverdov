@@ -6,6 +6,7 @@ export default function NewCost(props) {
             ...inputCostData,
             id: Math.random().toString(),
         }
+        props.onAddCost(costData);
     }
     return (
         <div className="new-cost">
