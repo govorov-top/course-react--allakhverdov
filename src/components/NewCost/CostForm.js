@@ -16,14 +16,18 @@ export default function CostForm(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         props.onSaveCostData({
-            name: inputName,
-            amount: inputAmount,
-            date: new Date(inputDate)
+            costDesc: inputName,
+            costAmount: inputAmount,
+            costDate: new Date(inputDate)
         })
         setInputName('');
         setInputAmount('');
         setInputDate('');
     }
+    const cancelSubmitHandler = () => {
+        props.onHiddenForm(false)
+    }
+
     return (
         <form className="new-cost__controls" action="" onSubmit={submitHandler}>
             <label className="new-cost__control" htmlFor="">Название
@@ -37,7 +41,7 @@ export default function CostForm(props) {
             </label>
             <div className="new-cost__actions">
                 <button type="submit">Добавить расход</button>
-                <button type="submit">Отмена</button>
+                <button type="button" onClick={cancelSubmitHandler}>Отмена</button>
             </div>
         </form>
     );

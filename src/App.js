@@ -1,58 +1,43 @@
 import Costs from "./components/Costs/Costs";
-import Card from "./components/UI/Card";
 import NewCost from "./components/NewCost/NewCost";
-import CostsFilter from "./components/CostsFilter/CostsFilter";
 import {useState} from "react";
-function App() {
-    const date = new Date().getFullYear();
-    const [selectedYear, setSelectedYear] = useState(date);
+import CostsDiagram from "./components/Costs/CostsDiagram";
 
-    const costs =[
-        {
-            id: 'c1',
-            costDate: new Date(2021, 2, 12),
-            costDesc: 'Холодильник',
-            costAmount: 999.99,
-        },
-        {
-            id: 'c2',
-            costDate: new Date(2021, 2, 15),
-            costDesc: 'Джинсы',
-            costAmount: 58,
-        },
-        {
-            id: 'c3',
-            costDate: new Date(2021, 2, 17),
-            costDesc: 'Футболка',
-            costAmount: 25,
-        },
-    ]
+const INITIAL_COSTS =[
+    {
+        id: 'c1',
+        costDate: new Date(2023, 2, 12),
+        costDesc: 'Холодильник',
+        costAmount: 999.99,
+    },
+    {
+        id: 'c2',
+        costDate: new Date(2023, 5, 15),
+        costDesc: 'Джинсы',
+        costAmount: 58,
+    },
+    {
+        id: 'c3',
+        costDate: new Date(2023, 10, 17),
+        costDesc: 'Футболка',
+        costAmount: 25,
+    },
+]
+
+function App() {
+    const [costs, setCosts] = useState(INITIAL_COSTS);
 
     const addCostHandler = (cost) => {
-        console.log(cost);
-        console.log('App');
-    }
-
-    const changeYearHandler = (year) => {
-        setSelectedYear(year)
+        console.log('APP', cost)
+        setCosts((prevState) => [cost, ...prevState]);
     }
 
     return (
-        <div>
+        <>
             <h1>Hi!</h1>
             <NewCost onAddCost={addCostHandler}/>
-            <Card className="costs">
-                <CostsFilter year={selectedYear} onChangeYear={changeYearHandler}/>
-                {
-                    costs.map( (c, k) => <Costs
-                        costDate={c.costDate}
-                        costDesc={c.costDesc}
-                        costAmount={c.costAmount}
-                        key={k}
-                    />)
-                }
-            </Card>
-        </div>
+            <Costs costs={costs}/>
+        </>
     );
 }
 
