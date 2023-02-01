@@ -1,4 +1,4 @@
-import './NewCost.css';
+import './NewCost.scss';
 import CostForm from "./CostForm";
 import {useState} from "react";
 export default function NewCost(props) {

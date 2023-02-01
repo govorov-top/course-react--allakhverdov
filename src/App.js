@@ -1,7 +1,6 @@
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 import {useState} from "react";
-import CostsDiagram from "./components/Costs/CostsDiagram";
 
 const INITIAL_COSTS =[
     {

@@ -1,4 +1,4 @@
-import './DiagramBar.css';
+import './DiagramBar.scss';
 function DiagramBar(props) {
     const {value, label, maxValue} = props;
     let barFillHeight = '0%';

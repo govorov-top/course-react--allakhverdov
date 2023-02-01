@@ -1,4 +1,4 @@
-import './Costs.css';
+import './Costs.scss';
 import Card from "../UI/Card";
 import CostsFilter from "../CostsFilter/CostsFilter";
 import {useState} from "react";

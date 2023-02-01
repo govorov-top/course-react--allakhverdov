@@ -1,4 +1,4 @@
-import './Diagram.css';
+import './Diagram.scss';
 import DiagramBar from "./DiagramBar";
 
 function Diagram({dataSets}) {

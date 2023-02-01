@@ -1,4 +1,4 @@
-import './CostForm.css';
+import './CostForm.scss';
 import {useState} from "react";
 export default function CostForm(props) {
     const [inputName, setInputName] = useState('');

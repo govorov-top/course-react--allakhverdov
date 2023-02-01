@@ -1,4 +1,4 @@
-import "./CostsFilter.css";
+import "./CostsFilter.scss";
 export default function CostsFilter (props) {
   const yearChangeHandler = (event) => {
     props.onChangeYear(event.target.value);
