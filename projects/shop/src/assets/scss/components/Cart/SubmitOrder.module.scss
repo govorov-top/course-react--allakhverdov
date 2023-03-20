@@ -1,65 +1,63 @@
 .form {
 	margin: 1rem 0;
-	height: 15rem;
-	overflow: auto;
-}
-
-.control {
-	margin-bottom: 0.5rem;
-}
-
-.control label {
-	margin-bottom: 0.3rem;
-	display: block;
-}
-
-.control input {
-	font: inherit;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	width: 20rem;
-	max-width: 100%;
-}
-
-.actions {
-	display: flex;
-	justify-content: flex-end;
-	gap: 2rem;
-}
-
-.actions button {
-	font: inherit;
-	color: #6b068a;
-	cursor: pointer;
-	background-color: transparent;
-	border: 1px solid #6b068a;
-	border-radius: 25px;
-	padding: 0.5rem 2rem;
-}
-
-.actions button:hover,
-.actions button:active {
-	background-color: #ccc;
-}
-
-.actions .submit {
-	border: 1px solid #6b068a;
-	background-color: #6b068a;
-	color: white;
-}
-
-.actions .submit:hover,
-.actions .submit:active {
-	background-color: #47035d;
-	border-color: #47035d;
-	color: white;
-}
-
-.invalid label {
-	color: red;
-}
-
-.invalid input {
-	border-color: red;
-	background-color: #dccccc;
+	.control {
+		width: max-content;
+		margin: 0 auto;
+		position: relative;
+		padding-bottom: 19px;
+		label {
+			margin-bottom: 0.3rem;
+			display: block;
+		}
+		input {
+			font: inherit;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			width: 20rem;
+			max-width: 100%;
+			padding: 5px 10px;
+		}
+		&.invalid {
+			input {
+				border-color: red;
+				background-color: #dccccc;
+			}
+			.error-text {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				color: red;
+				font-size: 12px;
+			}
+		}
+	}
+	.actions {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 1rem;
+		button {
+			font: inherit;
+			color: #6b068a;
+			cursor: pointer;
+			background-color: transparent;
+			border: 1px solid #6b068a;
+			border-radius: 25px;
+			padding: 0.5rem 2rem;
+			&:hover, &:active {
+				background-color: #ccc;
+			}
+			&.submit {
+				border: 1px solid #6b068a;
+				background-color: #6b068a;
+				color: white;
+				&:hover,
+				&:active {
+					background-color: #47035d;
+					border-color: #47035d;
+					color: white;
+				}
+			}
+		}
+	}
 }

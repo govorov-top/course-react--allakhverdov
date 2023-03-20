@@ -1,47 +1,52 @@
 import styles from "../../assets/scss/components/Meals/MealList.module.scss"
 import Card from "../UI/Card";
 import MealItem from "./MealItem";
-
-const DUMMY_MEALS = [
-    {
-        id: "m1",
-        name: 'Ролл "Наоми"',
-        description:
-            "Сыр Филадельфия, куриное филе, масаго, помидор, огурец, кунжут",
-        price: 11.99,
-    },
-    {
-        id: "m2",
-        name: "Спайс в лососе",
-        description: "Рис, лосось, соус спайс",
-        price: 3.99,
-    },
-    {
-        id: "m3",
-        name: "Суши с угрем",
-        description: "Угорь копченый, соус унаги, кунжут",
-        price: 4.99,
-    },
-    {
-        id: "m4",
-        name: 'Салат "Поке с лососем"',
-        description:
-            "Рис, лосось, огурец, чука, нори, стружка тунца, соус ореховый",
-        price: 7.99,
-    },
-];
+import useFetch from "../../hooks/useFetch";
+import {useEffect, useState} from "react";
 
 function MealList( props ) {
-    const mealList = DUMMY_MEALS.map(obj => <MealItem key={obj.id} meals={obj}/>);
+    const [meals, setMeals] = useState([]);
+    const { isLoading, error, sendHttpRequest: fetchProducts } = useFetch();
+    useEffect(() => {
+        const manageProducts = (productsData) => {
+            const loadedProducts = [];
+            for (const productKey in productsData) {
+                loadedProducts.push({
+                    id: productKey,
+                    description: productsData[productKey].description,
+                    name: productsData[productKey].name,
+                    price: productsData[productKey].price,
+                });
+            }
+            setMeals(loadedProducts);
+        };
+        fetchProducts(
+            {
+                endpoint:
+                    "https://rg-react-test-default-rtdb.firebaseio.com/meals.json",
+            },
+            manageProducts
+        );
 
+    }, [fetchProducts]);
+    const mealList = meals.map(obj => <MealItem key={obj.id} meals={obj}/>);
     return (
-        <section className={styles.meals}>
-            <Card>
-                <ul className={styles.meals}>
-                    {mealList}
-                </ul>
-            </Card>
-        </section>
+        <>
+            <section className={styles.meals}>
+                <Card>
+                    {
+                        error
+                            ? <p>{error}</p>
+                            : isLoading
+                                ? <p>Loading...</p>
+                                : <ul className={styles.meals}>
+                                    {mealList}
+                                </ul>
+                    }
+                </Card>
+            </section>
+
+        </>
     );
 }
 

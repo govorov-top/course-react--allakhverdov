@@ -41,6 +41,11 @@ const cartReducer = (state,action) => {
                 items: updatedItems,
                 totalAmount: state.totalAmount - existingCartItem.price
             }
+        case 'REMOVE_ITEMS' :
+            return {
+                items: [],
+                totalAmount: 0
+            }
         default :
             return defaultCartState;
     }
@@ -60,11 +65,18 @@ const CartContextProvider = (props) => {
             id: id
         })
     }
+
+    const removeItemsHandler = () => {
+        dispatch({
+            type: 'REMOVE_ITEMS',
+        })
+    }
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemHandler,
         removeItem: removeItemHandler,
+        removeItems: removeItemsHandler,
     }
     return (
         <CartContext.Provider value={cartContext}>

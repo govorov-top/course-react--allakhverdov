@@ -5,7 +5,7 @@ import CartContext from "../../store/CartContext";
 
 function MealItem( props ) {
     const cartContext = useContext(CartContext);
-    const {id, name,description,price} = props.meals;
+    const {id, name, description, price} = props.meals;
 
     const addToCartHandler = (amount) => {
         cartContext.addItem({id, name, amount, price});

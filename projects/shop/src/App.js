@@ -13,7 +13,6 @@ function App() {
     }
 
     const hideCartHandler = () => {
-        console.log(1)
         setCartIsVisible(false)
     }
 
