@@ -11,7 +11,7 @@ class Customers extends Component{
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.customers.length === 0){
+    if (!this.props.customers.length){
       throw new Error('Error...')
     }
   }

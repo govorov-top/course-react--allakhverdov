@@ -13,6 +13,7 @@ class CustomerFilter extends Component {
       filteredCustomers: [],
       filter: "",
     };
+
   }
 
   componentDidMount() {
