@@ -1,5 +1,4 @@
 # Expense accounting
-### This is a project from course [Yurij Allakhverdov](https://www.udemy.com/course/react-np/)
 
 This project focuses on learning and practicing the fundamental syntax of React, including JSX, component management, and data handling. The main objective of the project is to gain proficiency in these aspects of React development.
 
