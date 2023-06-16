@@ -3,6 +3,7 @@
 # IDEA
 .idea
 package-lock.json
+/code
 
 # dependencies
 /node_modules
