@@ -27,7 +27,7 @@ export default function NewCost(props) {
             {
                 showForm ?
                     <CostForm onSaveCostData={saveCostDataHandler} onHiddenForm={hiddenFormHandler}/> :
-                    <button onClick={showFormHandler}>Добавмить новый расход</button>
+                    <button onClick={showFormHandler}>Add new flow rate</button>
             }
         </div>
     );

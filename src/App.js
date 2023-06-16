@@ -6,19 +6,19 @@ const INITIAL_COSTS =[
     {
         id: 'c1',
         costDate: new Date(2023, 2, 12),
-        costDesc: 'Холодильник',
+        costDesc: 'Refrigerator',
         costAmount: 999.99,
     },
     {
         id: 'c2',
         costDate: new Date(2023, 5, 15),
-        costDesc: 'Джинсы',
+        costDesc: 'Jeans',
         costAmount: 58,
     },
     {
         id: 'c3',
         costDate: new Date(2023, 10, 17),
-        costDesc: 'Футболка',
+        costDesc: 'T-shirt',
         costAmount: 25,
     },
 ]
@@ -33,7 +33,6 @@ function App() {
 
     return (
         <>
-            <h1>Hi!</h1>
             <NewCost onAddCost={addCostHandler}/>
             <Costs costs={costs}/>
         </>

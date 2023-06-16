@@ -7,7 +7,7 @@ export default function CostsFilter (props) {
   return (
       <div className="costs-filter">
         <div className="costs-filter__control">
-          <label>Выбор По Году</label>
+          <label>Choice by Year</label>
           <select value={props.year} onChange={yearChangeHandler}>
             <option value="2023">2023</option>
             <option value="2022">2022</option>

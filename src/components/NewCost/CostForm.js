@@ -30,18 +30,18 @@ export default function CostForm(props) {
 
     return (
         <form className="new-cost__controls" action="" onSubmit={submitHandler}>
-            <label className="new-cost__control" htmlFor="">Название
+            <label className="new-cost__control" htmlFor="">Title
                 <input value={inputName} onChange={nameChangeHandler} type="text"/>
             </label>
-            <label className="new-cost__control" htmlFor="">Сумма
+            <label className="new-cost__control" htmlFor="">Amount
                 <input value={inputAmount} onChange={amountChangeHandler} type="number" min="0.01" step="0.01"/>
             </label>
-            <label className="new-cost__control" htmlFor="">Дата
+            <label className="new-cost__control" htmlFor="">Date
                 <input value={inputDate} onChange={dateChangeHandler} type="date" min="1950-01-01"/>
             </label>
             <div className="new-cost__actions">
-                <button type="submit">Добавить расход</button>
-                <button type="button" onClick={cancelSubmitHandler}>Отмена</button>
+                <button type="submit">Add expense</button>
+                <button type="button" onClick={cancelSubmitHandler}>Cancel</button>
             </div>
         </form>
     );
